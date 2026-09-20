@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="冠城国际官方首页，提供高端住宅、商业地产项目介绍、物业服务及最新楼盘动态。致力于打造城市理想生活空间，满足您对品质居住的追求。">
+    <meta name="keywords" content="冠城国际,高端住宅,商业地产,物业管理,房产,冠城集团">
+    <title>冠城国际-高端品质住宅与商业地产综合服务平台</title>
+    <style>
+        :root {
+            --primary-color: #1a3c5e;
+            --secondary-color: #c9a962;
+            --accent-color: #e63946;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f9f9f9;
+            --bg-white: #ffffff;
+            --spacing-unit: 1rem;
+            --border-radius: 4px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: #133553;
+            border-color: #133553;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            margin: 10px auto 0;
+        }
+
+        .section-title p {
+            color: var(--text-gray);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: var(--primary-color);
+            color: rgba(255,255,255,0.8);
+            font-size: 0.85rem;
+            padding: 8px 0;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+            margin-left: 5px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            background: linear-gradient(rgba(26, 60, 94, 0.7), rgba(26, 60, 94, 0.5)), url('https://picsum.photos/seed/crowncity/1920/1080.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            color: #fff;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.15);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        /* Features */
+        .features {
+            padding: 60px 0;
+            background-color: var(--bg-white);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-color: var(--secondary-color);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .feature-item h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 80px 0;
+        }
+
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: none;
+            border: none;
+            padding: 8px 20px;
+            font-size: 1rem;
+            color: var(--text-gray);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            color: var(--primary-color);
+            border-bottom-color: var(--secondary-color);
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background: var(--bg-white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .project-image {
+            height: 240px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 4px 12px;
+            font-size: 0.8rem;
+            border-radius: 2px;
+        }
+
+        .project-info {
+            padding: 25px;
+        }
+
+        .project-info h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .project-loc {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: var(--bg-white);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--text-gray);
+            text-align: justify;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .stat-item h4 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-item span {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .about-image img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        /* Contact / CTA */
+        .cta-section {
+            padding: 80px 0;
+            background-color: var(--primary-color);
+            color: #fff;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            margin-bottom: 30px;
+            opacity: 0.8;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111;
+            color: #999;
+            padding: 60px 0 20px;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        .contact-info li {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            .about-image {
+                order: -1;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-wrap: wrap;
+            }
+            nav {
+                order: 3;
+                width: 100%;
+                margin-top: 15px;
+            }
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .header-actions {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <span>欢迎访问冠城国际官方网站，了解更多高端地产资讯与服务。</span>
+            <span>24小时服务热线：400-888-XXXX</span>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">冠城国际<span>Guancheng</span></a>
+            
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#projects">精选楼盘</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                    <li><a href="#services">物业服务</a></li>
+                    <li><a href="#news">新闻动态</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline">在线咨询</a>
+                <a href="#" class="btn btn-primary">预约看房</a>
+            </div>
+
+            <div class="mobile-menu-btn">☰</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badges">
+                    <span class="badge">品质地产</span>
+                    <span class="badge">匠心筑家</span>
+                    <span class="badge">尊贵服务</span>
+                </div>
+                <h1>定义城市高端生活新标准</h1>
+                <p>冠城国际深耕地产开发多年，以卓越的建筑品质与完善的生活配套，为您打造理想的居住港湾。选择冠城，选择品质生活。</p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="#projects" class="btn btn-primary">浏览楼盘</a>
+                    <a href="#about" class="btn btn-outline" style="color: #fff; border-color: #fff;">了解品牌</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <article class="feature-item">
+                    <div class="feature-icon">🏢</div>
+                    <h3>精品开发</h3>
+                    <p>专注于高端住宅与商业综合体开发，严格把控工程质量，打造经得起时间考验的建筑精品。</p>
+                </article>
+                <article class="feature-item">
+                    <div class="feature-icon">🌳</div>
+                    <h3>生态园林</h3>
+                    <p>引入国际先进景观设计理念，打造多重园林景观，让您在繁华都市中尽享自然静谧。</p>
+                </article>
+                <article class="feature-item">
+                    <div class="feature-icon">🛎️</div>
+                    <h3>尊贵服务</h3>
+                    <p>24小时全天候管家式物业服务，全方位呵护您的居家生活，提供细致入微的关怀体验。</p>
+                </article>
+                <article class="feature-item">
+                    <div class="feature-icon">🚇</div>
+                    <h3>交通便利</h3>
+                    <p>项目周边交通网络发达，地铁、公交线路密集，轻松连接城市各个核心区域。</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>精选项目</h2>
+                <p>每一处都是精心雕琢的城市地标，为您呈现不同的生活美学</p>
+            </div>
+
+            <div class="project-filters">
+                <button class="filter-btn active">全部项目</button>
+                <button class="filter-btn">高端住宅</button>
+                <button class="filter-btn">商业中心</button>
+                <button class="filter-btn">精品公寓</button>
+            </div>
+
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <article class="project-card">
+                    <div class="project-image">
+                        <span class="project-tag">热销</span>
+                        <img src="https://picsum.photos/seed/estate1/400/300.jpg" alt="冠城国际·御景湾">
+                    </div>
+                    <div class="project-info">
+                        <h3>冠城国际·御景湾</h3>
+                        <div class="project-loc">📍 滨海区·核心商圈</div>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">一线海景资源，奢华大平层设计，尊享私属会所。</p>
+                        <div class="project-meta">
+                            <span>建筑面积: 180-280㎡</span>
+                            <span>均价: 45,000元/㎡</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card">
+                    <div class="project-image">
+                        <span class="project-tag">新推</span>
+                        <img src="https://picsum.photos/seed/estate2/400/300.jpg" alt="冠城国际·中心公馆">
+                    </div>
+                    <div class="project-info">
+                        <h3>冠城国际·中心公馆</h3>
+                        <div class="project-loc">📍 城市中心·CBD</div>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">地标级商务写字楼，甲级标准，助力企业发展。</p>
+                        <div class="project-meta">
+                            <span>写字楼: 200-1000㎡</span>
+                            <span>租金: 8.5元/㎡/天</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card">
+                    <div class="project-image">
+                        <span class="project-tag">新品</span>
+                        <img src="https://picsum.photos/seed/estate3/400/300.jpg" alt="冠城国际·静谧园">
+                    </div>
+                    <div class="project-info">
+                        <h3>冠城国际·静谧园</h3>
+                        <div class="project-loc">📍 城南新区·生态区</div>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">低密度花园洋房，全龄段社区，温馨舒适。</p>
+                        <div class="project-meta">
+                            <span>户型: 98-140㎡</span>
+                            <span>均价: 28,000元/㎡</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#" class="btn btn-outline">查看所有项目</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://picsum.photos/seed/architecture/600/400.jpg" alt="冠城国际企业风采">
+                </div>
+                <div class="about-text">
+                    <h2>深耕地产，筑梦生活</h2>
+                    <p>冠城国际自成立以来，始终秉持“品质为先，客户至上”的核心价值观。我们不仅仅是在建造房屋，更是在构建一种生活方式。通过持续的创新与卓越的执行力，我们在多个城市打造了多个标杆项目，赢得了市场的广泛认可与业主的高度信赖。</p>
+                    <p>我们致力于通过绿色建筑、智慧社区等先进理念，为城市贡献更多可持续发展的优质资产。</p>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <h4>20+</h4>
+                            <span>年开发经验</span>
+                        </div>
+                        <div class="stat-item">
+                            <h4>50+</h4>
+                            <span>精品项目</span>
+                        </div>
+                        <div class="stat-item">
+                            <h4>10w+</h4>
+                            <span>尊贵业主</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>开启您的品质生活之旅</h2>
+            <p>无论您是想寻找理想家园，还是寻求商业投资机会，冠城国际都能为您提供专业的咨询与贴心的服务。</p>
+            <a href="#" class="btn btn-primary" style="background-color: #fff; color: var(--primary-color);">立即预约品鉴</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>冠城国际</h3>
+                    <p>致力于为城市精英提供高品质的居住与商业空间，构建和谐、繁荣的城市社区。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">品牌故事</a></li>
+                        <li><a href="#">组织架构</a></li>
+                        <li><a href="#">社会责任</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务支持</h4>
+                    <ul>
+                        <li><a href="#">物业服务</a></li>
+                        <li><a href="#">房屋维修</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">在线报修</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul class="contact-info">
+                        <li>📍 地址：中国某市冠城大道888号</li>
+                        <li>📞 电话：400-888-XXXX</li>
+                        <li>📧 邮箱：contact@guancheng.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 冠城国际 版权所有 | 本网站仅供展示用途，不作为实际交易依据。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>

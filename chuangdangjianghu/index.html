@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闯荡江湖全集-武侠经典全本阅读与剧情解析</title>
+    <meta name="description" content="提供《闯荡江湖全集》在线阅读服务，收录小说全本内容、章节目录及角色背景。深入解析故事情节、武功设定与江湖恩怨，是武侠小说爱好者的最佳阅读平台。">
+    <meta name="keywords" content="闯荡江湖全集, 闯荡江湖, 在线阅读, 武侠小说, 全本小说, 章节目录">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #8B0000; /* 深红，武侠经典色 */
+            --secondary-color: #D4AF37; /* 香槟金，品质感 */
+            --bg-color: #F9F7F2; /* 米白宣纸色 */
+            --card-bg: #FFFFFF;
+            --text-main: #333333;
+            --text-light: #666666;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "SimSun", serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--primary-color);
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部 */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+        }
+
+        .search-box {
+            display: flex;
+        }
+
+        .search-box input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            outline: none;
+        }
+
+        .search-box button {
+            background-color: var(--primary-color);
+            color: #fff;
+            border: none;
+            padding: 0 16px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, #4a0000 0%, #8B0000 100%);
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-tags span {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin: 8px 4px;
+        }
+
+        /* 导航条 */
+        .sub-nav {
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            margin-bottom: 30px;
+        }
+
+        .sub-nav ul {
+            display: flex;
+            overflow-x: auto;
+            list-style: none;
+        }
+
+        .sub-nav li a {
+            display: block;
+            padding: 12px 24px;
+            font-size: 15px;
+            color: var(--text-light);
+            white-space: nowrap;
+        }
+
+        .sub-nav li a.active, .sub-nav li a:hover {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        /* 主要内容网格 */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        /* 左侧内容区 */
+        .content-area h2 {
+            font-size: 24px;
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .chapter-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .chapter-card {
+            background: var(--card-bg);
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            padding: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .chapter-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-color: var(--primary-color);
+        }
+
+        .chapter-card h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .chapter-card .meta {
+            font-size: 12px;
+            color: var(--text-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* 阅读器区域 */
+        .reader-container {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            min-height: 600px;
+        }
+
+        .reader-title {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .reader-content {
+            font-family: "Kaiti SC", "KaiTi", "SimSun", serif;
+            font-size: 18px;
+            line-height: 2;
+            text-align: justify;
+            color: #222;
+        }
+
+        .reader-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .reader-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* 侧边栏 */
+        aside .widget {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .widget-title {
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+
+        .author-info {
+            text-align: center;
+        }
+
+        .author-avatar {
+            width: 80px;
+            height: 80px;
+            background-color: #eee;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            color: #999;
+        }
+
+        .stats-list li {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 14px;
+        }
+
+        .tags-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tags-cloud a {
+            font-size: 12px;
+            background: #f5f5f5;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+
+        /* 底部 */
+        footer {
+            background-color: #333;
+            color: #aaa;
+            padding: 40px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            font-size: 13px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+            }
+            nav ul {
+                margin-top: 10px;
+                gap: 15px;
+            }
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 28px;
+            }
+            .reader-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo">
+            <span>闯荡江湖全集</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">全本小说</a></li>
+                <li><a href="#">章节目录</a></li>
+                <li><a href="#">书评互动</a></li>
+            </ul>
+        </nav>
+        <div class="search-box">
+            <input type="text" placeholder="搜索书名或章节...">
+            <button>搜索</button>
+        </div>
+    </div>
+</header>
+
+<div class="hero">
+    <div class="container">
+        <h1>闯荡江湖全集</h1>
+        <p>一个关于侠义、成长与复仇的江湖传说。在乱世之中，少年如何拔剑而起，书写属于自己的传奇篇章？</p>
+        <div class="hero-tags">
+            <span>武侠</span>
+            <span>全本完结</span>
+            <span>热血</span>
+            <span>经典</span>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="sub-nav">
+        <ul>
+            <li><a href="#" class="active">最新章节</a></li>
+            <li><a href="#">第一卷：初出茅庐</a></li>
+            <li><a href="#">第二卷：名动江湖</a></li>
+            <li><a href="#">第三卷：剑指巅峰</a></li>
+            <li><a href="#">第四卷：侠骨柔情</a></li>
+            <li><a href="#">番外篇</a></li>
+        </ul>
+    </div>
+
+    <div class="main-grid">
+        <!-- 左侧阅读区 -->
+        <main class="content-area">
+            <div class="reader-container">
+                <h2 class="reader-title">第 1 章：风起云涌</h2>
+                <div class="reader-content">
+                    <p>残阳如血，铺洒在苍茫的西域大漠之上。狂风卷起漫天黄沙，掩盖了前行的路途，也掩盖了无数江湖儿女的悲欢离合。</p>
+                    <p>少年林萧勒住马缰，伫立在断崖之巅。他手中的长剑虽未出鞘，但那股凛冽的寒意，已足以令方圆十里的飞鸟惊惶坠地。他的目光穿透层层风沙，似乎在寻找着什么，又似乎在等待着什么。</p>
+                    <p>“林萧，你终究还是来了。”一个苍老而沙哑的声音，在风中若隐若现。</p>
+                    <p>林萧没有回头，只是握紧了剑柄，指节因用力而微微泛白。“师父，徒儿不孝，让您久等了。”</p>
+                    <p>风沙渐止，一道黑影缓缓从崖下升起。来人一身灰袍，面容隐没在兜帽之下，唯有手中那根枯藤拐杖，在阳光下透着一股诡异的光泽。</p>
+                    <p>“这一路走来，你杀的人够多了。”灰袍人缓缓说道，“江湖路远，恩怨难清，你真的想好了吗？”</p>
+                    <p>林萧深吸一口气，缓缓拔剑出鞘。刹那间，剑光如虹，映照出他坚毅而冷峻的脸庞。“徒儿既然踏入江湖，便已将生死置之度外。今日，便是终结这一切之时。”</p>
+                    <p>灰袍人沉默了片刻，嘴角勾起一抹意味深长的弧度。“好，好一个置之度外。既然如此，那便让我们看看，你的剑，到底有多快。”</p>
+                    <p>（本章完）</p>
+                </div>
+                <div class="reader-nav">
+                    <a href="#" class="btn btn-outline">上一章</a>
+                    <a href="#" class="btn">目录</a>
+                    <a href="#" class="btn btn-outline">下一章</a>
+                </div>
+            </div>
+
+            <h2>后续章节预览</h2>
+            <div class="chapter-list">
+                <article class="chapter-card">
+                    <h3>第 2 章：神秘遗迹</h3>
+                    <div class="meta">
+                        <span>字数：3200</span>
+                        <span>更新：2023-10-25</span>
+                    </div>
+                </article>
+                <article class="chapter-card">
+                    <h3>第 3 章：各路豪杰</h3>
+                    <div class="meta">
+                        <span>字数：3500</span>
+                        <span>更新：2023-10-26</span>
+                    </div>
+                </article>
+                <article class="chapter-card">
+                    <h3>第 4 章：暗夜杀机</h3>
+                    <div class="meta">
+                        <span>字数：2800</span>
+                        <span>更新：2023-10-27</span>
+                    </div>
+                </article>
+                <article class="chapter-card">
+                    <h3>第 5 章：生死对决</h3>
+                    <div class="meta">
+                        <span>字数：4000</span>
+                        <span>更新：2023-10-28</span>
+                    </div>
+                </article>
+            </div>
+        </main>
+
+        <!-- 右侧侧边栏 -->
+        <aside>
+            <div class="widget author-info">
+                <div class="author-avatar">侠</div>
+                <h3 class="widget-title">作者简介</h3>
+                <p style="font-size: 14px; color: #666; margin-bottom: 10px;">笔名：铁马冰河</p>
+                <p style="font-size: 13px; color: #888; line-height: 1.5;">资深武侠迷，擅长构建宏大世界观与细腻人物情感。代表作《闯荡江湖全集》深受读者喜爱。</p>
+            </div>
+
+            <div class="widget">
+                <h3 class="widget-title">小说统计</h3>
+                <ul class="stats-list">
+                    <li><span>总字数</span><span>120万字</span></li>
+                    <li><span>章节数</span><span>428章</span></li>
+                    <li><span>阅读量</span><span>580万+</span></li>
+                    <li><span>收藏</span><span>12.5万</span></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3 class="widget-title">热门标签</h3>
+                <div class="tags-cloud">
+                    <a href="#">玄幻</a>
+                    <a href="#">修真</a>
+                    <a href="#">热血</a>
+                    <a href="#">逆袭</a>
+                    <a href="#">复仇</a>
+                    <a href="#">单女主</a>
+                    <a href="#">无敌流</a>
+                    <a href="#">杀伐果断</a>
+                </div>
+            </div>
+
+            <div class="widget">
+                <h3 class="widget-title">猜你喜欢</h3>
+                <ul class="stats-list">
+                    <li><a href="#">《绝世剑神》</a></li>
+                    <li><a href="#">《仙逆传说》</a></li>
+                    <li><a href="#">《傲世九重天》</a></li>
+                    <li><a href="#">《大主宰》</a></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于《闯荡江湖全集》</h4>
+                <p style="font-size: 13px; line-height: 1.6;">本站提供《闯荡江湖全集》免费在线阅读。我们致力于为读者提供舒适、流畅的阅读体验，所有内容均来源于网络或用户投稿，仅供交流学习。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">网站地图</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">联系站长</a></li>
+                    <li><a href="#">广告合作</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>阅读指南</h4>
+                <ul>
+                    <li><a href="#">如何阅读</a></li>
+                    <li><a href="#">章节更新</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">反馈建议</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 闯荡江湖全集阅读网 版权所有. 保留所有权利。</p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资中租房 - 城市居住指南与房源信息服务平台</title>
+    <meta name="description" content="资中租房门户提供资中县最新租房信息、房源查询、房东直租服务及租房攻略。涵盖资中城区、水南镇等热门区域房源，助您快速找到理想居所。">
+    <meta name="keywords" content="资中租房, 资中房屋出租, 资中二手房, 资中短租, 资中房东直租">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #e67e22;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e1e4e8;
+            --spacing-unit: 16px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border-color);
+            background: transparent;
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #d35400;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Search Bar */
+        .search-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: -40px auto 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            flex: 1;
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .form-control {
+            padding: 10px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-color);
+        }
+
+        .search-btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 0 24px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 4px;
+            height: 42px;
+            margin-top: auto;
+        }
+
+        /* Main Content */
+        .main-content {
+            max-width: var(--container-width);
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 240px 1fr;
+            gap: 32px;
+        }
+
+        /* Sidebar */
+        aside {
+            position: sticky;
+            top: 90px;
+            height: fit-content;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .widget-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .category-list li {
+            margin-bottom: 8px;
+        }
+
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 12px;
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .category-list a:hover {
+            background-color: #f0f2f5;
+            color: var(--primary-color);
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background-color: #f0f2f5;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .tag:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        /* Listings Grid */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 18px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .sort-options select {
+            padding: 6px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            color: var(--text-secondary);
+            font-size: 14px;
+            outline: none;
+        }
+
+        .house-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .house-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .house-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .card-image {
+            height: 180px;
+            background-color: #eee;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background-color: rgba(0,0,0,0.6);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .card-price {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .card-content {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .card-address {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-features {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #888;
+            margin-top: auto;
+            padding-top: 12px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .card-footer {
+            padding: 12px 16px;
+            background-color: #fafafa;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .agent-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .agent-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #ddd;
+        }
+
+        .agent-name {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .guide-item {
+            display: flex;
+            gap: 16px;
+        }
+
+        .guide-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #fff3e0;
+            color: var(--accent-color);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 20px;
+        }
+
+        .guide-content h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .guide-content p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            font-size: 14px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #95a5a6;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                height: auto;
+                padding: 16px;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            nav ul {
+                gap: 16px;
+                font-size: 14px;
+            }
+
+            .search-container {
+                margin: 0 16px;
+                padding: 16px;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+                margin-top: 24px;
+            }
+
+            aside {
+                position: static;
+                order: -1;
+            }
+
+            .sidebar-widget {
+                margin-bottom: 16px;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <span>🏠</span> 资中租房
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">全部房源</a></li>
+                    <li><a href="#">小区找房</a></li>
+                    <li><a href="#">个人房源</a></li>
+                    <li><a href="#">租房攻略</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">发布房源</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner" style="max-width: var(--container-width); margin: 0 auto; padding: 0 16px;">
+            <h1>在资中找到您的理想居所</h1>
+            <p>海量真实房源，覆盖水南镇、重龙山周边及资中城区。房东直租，无中介费，安全可靠。</p>
+        </div>
+    </section>
+
+    <div class="search-container">
+        <form class="search-form" onsubmit="event.preventDefault();">
+            <div class="form-group">
+                <label>所在区域</label>
+                <select class="form-control">
+                    <option>全城范围</option>
+                    <option>水南镇</option>
+                    <option>城东新区</option>
+                    <option>重龙山周边</option>
+                    <option>甘露镇</option>
+                    <option>球溪镇</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>租金范围</label>
+                <select class="form-control">
+                    <option>不限</option>
+                    <option>1000元以下</option>
+                    <option>1000-2000元</option>
+                    <option>2000-3000元</option>
+                    <option>3000元以上</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>房屋类型</label>
+                <select class="form-control">
+                    <option>不限</option>
+                    <option>一室一厅</option>
+                    <option>两室一厅</option>
+                    <option>三室一厅</option>
+                    <option>合租单间</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>关键字</label>
+                <input type="text" class="form-control" placeholder="例如：近车站、精装...">
+            </div>
+            <button type="submit" class="search-btn">搜索房源</button>
+        </form>
+    </div>
+
+    <main class="main-content">
+        <!-- Sidebar -->
+        <aside>
+            <div class="sidebar-widget">
+                <div class="widget-title">租房区域</div>
+                <ul class="category-list">
+                    <li><a href="#">水南镇 <span>12%</span></a></li>
+                    <li><a href="#">城东新区 <span>8%</span></a></li>
+                    <li><a href="#">重龙山周边 <span>5%</span></a></li>
+                    <li><a href="#">甘露镇 <span>3%</span></a></li>
+                    <li><a href="#">球溪镇 <span>2%</span></a></li>
+                    <li><a href="#">银山镇 <span>1%</span></a></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <div class="widget-title">热门标签</div>
+                <div class="tag-cloud">
+                    <a href="#" class="tag">近医院</a>
+                    <a href="#" class="tag">近学校</a>
+                    <a href="#" class="tag">精装修</a>
+                    <a href="#" class="tag">家电齐全</a>
+                    <a href="#" class="tag">拎包入住</a>
+                    <a href="#" class="tag">带车位</a>
+                    <a href="#" class="tag">视野好</a>
+                    <a href="#" class="tag">低楼层</a>
+                </div>
+            </div>
+
+            <div class="sidebar-widget">
+                <div class="widget-title">最新发布</div>
+                <ul class="category-list">
+                    <li><a href="#">两室一厅，精装修，近重龙广场</a></li>
+                    <li><a href="#">一室一厅，适合单身人士，家电全</a></li>
+                    <li><a href="#">合租单间，阳光房，靠近资中车站</a></li>
+                    <li><a href="#">三室一厅，适合家庭居住，安静</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <section class="listings-area">
+            <div class="section-header">
+                <h2 class="section-title">最新房源推荐</h2>
+                <div class="sort-options">
+                    <select>
+                        <option>最新发布</option>
+                        <option>价格从低到高</option>
+                        <option>价格从高到低</option>
+                        <option>离我最近</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="house-grid">
+                <!-- House Card 1 -->
+                <article class="house-card">
+                    <div class="card-image">
+                        <span class="card-badge">个人房源</span>
+                        <span class="card-price">¥1800/月</span>
+                        <img src="https://picsum.photos/seed/zizong1/400/300" alt="两室一厅房源">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">精装两室一厅，近资中车站</h3>
+                        <div class="card-address">
+                            <span>📍</span> 水南镇 - 重龙广场附近
+                        </div>
+                        <div class="card-features">
+                            <span>2室1厅</span>
+                            <span>80㎡</span>
+                            <span>朝南</span>
+                            <span>家电全</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="agent-info">
+                            <div class="agent-avatar"></div>
+                            <span class="agent-name">李先生</span>
+                        </div>
+                        <a href="#" class="btn btn-outline" style="padding: 4px 12px; font-size: 12px;">联系</a>
+                    </div>
+                </article>
+
+                <!-- House Card 2 -->
+                <article class="house-card">
+                    <div class="card-image">
+                        <span class="card-badge">房东直租</span>
+                        <span class="card-price">¥1200/月</span>
+                        <img src="https://picsum.photos/seed/zizong2/400/300" alt="一室一厅房源">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">温馨一居室，拎包入住</h3>
+                        <div class="card-address">
+                            <span>📍</span> 城东新区 - 世纪广场
+                        </div>
+                        <div class="card-features">
+                            <span>1室1厅</span>
+                            <span>45㎡</span>
+                            <span>精装</span>
+                            <span>近地铁</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="agent-info">
+                            <div class="agent-avatar"></div>
+                            <span class="agent-name">王女士</span>
+                        </div>
+                        <a href="#" class="btn btn-outline" style="padding: 4px 12px; font-size: 12px;">联系</a>
+                    </div>
+                </article>
+
+                <!-- House Card 3 -->
+                <article class="house-card">
+                    <div class="card-image">
+                        <span class="card-badge">合租</span>
+                        <span class="card-price">¥600/月</span>
+                        <img src="https://picsum.photos/seed/zizong3/400/300" alt="合租房源">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">阳光合租单间，近学校</h3>
+                        <div class="card-address">
+                            <span>📍</span> 水南镇 - 教育园区
+                        </div>
+                        <div class="card-features">
+                            <span>合租</span>
+                            <span>20㎡</span>
+                            <span>独立卫浴</span>
+                            <span>免费网络</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="agent-info">
+                            <div class="agent-avatar"></div>
+                            <span class="agent-name">赵房东</span>
+                        </div>
+                        <a href="#" class="btn btn-outline" style="padding: 4px 12px; font-size: 12px;">联系</a>
+                    </div>
+                </article>
+
+                <!-- House Card 4 -->
+                <article class="house-card">
+                    <div class="card-image">
+                        <span class="card-badge">个人房源</span>
+                        <span class="card-price">¥2500/月</span>
+                        <img src="https://picsum.photos/seed/zizong4/400/300" alt="三室一厅房源">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">三室两厅，适合家庭居住</h3>
+                        <div class="card-address">
+                            <span>📍</span> 甘露镇 - 银杏大道
+                        </div>
+                        <div class="card-features">
+                            <span>3室2厅</span>
+                            <span>120㎡</span>
+                            <span>大阳台</span>
+                            <span>带车位</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="agent-info">
+                            <div class="agent-avatar"></div>
+                            <span class="agent-name">陈先生</span>
+                        </div>
+                        <a href="#" class="btn btn-outline" style="padding: 4px 12px; font-size: 12px;">联系</a>
+                    </div>
+                </article>
+
+                <!-- House Card 5 -->
+                <article class="house-card">
+                    <div class="card-image">
+                        <span class="card-badge">房东直租</span>
+                        <span class="card-price">¥1500/月</span>
+                        <img src="https://picsum.photos/seed/zizong5/400/300" alt="两室一厅房源">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">简装两室，适合上班族</h3>
+                        <div class="card-address">
+                            <span>📍</span> 城东新区 - 时代花园
+                        </div>
+                        <div class="card-features">
+                            <span>2室1厅</span>
+                            <span>75㎡</span>
+                            <span>采光好</span>
+                            <span>安静</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="agent-info">
+                            <div class="agent-avatar"></div>
+                            <span class="agent-name">刘女士</span>
+                        </div>
+                        <a href="#" class="btn btn-outline" style="padding: 4px 12px; font-size: 12px;">联系</a>
+                    </div>
+                </article>
+
+                <!-- House Card 6 -->
+                <article class="house-card">
+                    <div class="card-image">
+                        <span class="card-badge">个人房源</span>
+                        <span class="card-price">¥900/月</span>
+                        <img src="https://picsum.photos/seed/zizong6/400/300" alt="合租房源">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">合租主卧，近重龙山公园</h3>
+                        <div class="card-address">
+                            <span>📍</span> 重龙山 - 公园路
+                        </div>
+                        <div class="card-features">
+                            <span>合租</span>
+                            <span>25㎡</span>
+                            <span>近公园</span>
+                            <span>社区成熟</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="agent-info">
+                            <div class="agent-avatar"></div>
+                            <span class="agent-name">孙房东</span>
+                        </div>
+                        <a href="#" class="btn btn-outline" style="padding: 4px 12px; font-size: 12px;">联系</a>
+                    </div>
+                </article>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <button class="btn btn-outline" style="width: 200px;">加载更多房源</button>
+            </div>
+        </section>
+    </main>
+
+    <section class="guide-section">
+        <div class="section-header">
+            <h2 class="section-title">资中租房指南</h2>
+        </div>
+        <div class="guide-grid">
+            <div class="guide-item">
+                <div class="guide-icon">🔍</div>
+                <div class="guide-content">
+                    <h3>如何辨别房源真伪</h3>
+                    <p>在资中租房时，请务必核实房东身份。建议优先选择本平台认证的房东直租房源，避免陷入中介陷阱。</p>
+                </div>
+            </div>
+            <div class="guide-item">
+                <div class="guide-icon">📝</div>
+                <div class="guide-content">
+                    <h3>签订租房合同注意事项</h3>
+                    <p>签订合同时，请明确租金、押金、水电费结算方式及租期。特别要注意违约责任条款，保障自身权益。</p>
+                </div>
+            </div>
+            <div class="guide-item">
+                <div class="guide-icon">🚗</div>
+                <div class="guide-content">
+                    <h3>资中交通与通勤建议</h3>
+                    <p>资中县城不大，推荐居住在水南镇，出行便利。如需前往周边乡镇，可选择靠近资中客运站或球溪方向的房源。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">平台介绍</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li><a href="#">联系合作</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">租房协议</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">安全提示</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>热门区域</h4>
+                <ul>
+                    <li><a href="#">水南镇租房</a></li>
+                    <li><a href="#">城东新区租房</a></li>
+                    <li><a href="#">甘露镇租房</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关注我们</h4>
+                <ul>
+                    <li><a href="#">微信公众号</a></li>
+                    <li><a href="#">新浪微博</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 资中租房平台 版权所有. 本站仅提供信息展示，不直接参与交易。</p>
+        </div>
+    </footer>
+
+</body>
+  </html>
